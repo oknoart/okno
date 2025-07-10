@@ -57,9 +57,10 @@ header {
 }
 
 .images img {
-  width: calc(100% - 40px); /* full width minus horizontal padding */
-  margin: 0 auto;
   display: block;
+  width: calc(100% - 40px); /* 20px left + 20px right padding */
+  margin: 0 auto;
+  height: auto;
 
   border: 1px solid #ddd;
   border-radius: 4px;
