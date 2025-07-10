@@ -5,7 +5,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: #F8F2EA;
-  color: #262626; /* set text color to logo color */
+  color: #262626;
 
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -51,21 +51,16 @@ header {
 
 .images {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
   gap: 10px;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .images img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
+  width: calc(100% - 40px); /* full width minus horizontal padding */
+  margin: 0 auto;
+  display: block;
+
   border: 1px solid #ddd;
   border-radius: 4px;
-}
-
-/* Force all text elements to left-align by default */
-h1, h2, h3, h4, h5, h6, p, div {
-  text-align: left;
 }
