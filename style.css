@@ -5,6 +5,7 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: #F8F2EA;
+  color: #262626; /* set text color to logo color */
 
   overflow-wrap: break-word;
   word-wrap: break-word;
