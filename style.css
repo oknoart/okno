@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  background-color: #F8F2EA;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.hero-text {
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 700;
+  margin: 40px 20px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.images img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
