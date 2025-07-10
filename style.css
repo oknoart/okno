@@ -27,7 +27,7 @@ header {
 .images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: flex-start; /* ensures images start from the left */
   gap: 10px;
   margin: 20px;
 }
@@ -38,4 +38,9 @@ header {
   height: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+/* NEW: explicitly set left alignment for all text elements */
+h1, h2, h3, h4, h5, h6, p, div {
+  text-align: left;
 }
