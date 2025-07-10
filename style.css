@@ -6,7 +6,7 @@ body {
   font-style: normal;
   background-color: #F8F2EA;
 
-  overflow-wrap: break-word; /* ensures all text wraps */
+  overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
 }
@@ -14,7 +14,7 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 .logo {
@@ -24,8 +24,11 @@ header {
 .hero-text {
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 700;
-  margin: 40px 20px;
   text-align: left;
+
+  padding: 0 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 
   max-width: 100%;
   overflow-wrap: break-word;
@@ -49,7 +52,6 @@ header {
   border-radius: 4px;
 }
 
-/* Force all text elements to left-align by default */
 h1, h2, h3, h4, h5, h6, p, div {
   text-align: left;
 }
