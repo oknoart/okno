@@ -19,7 +19,7 @@ header {
 
 .hero-text {
   font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 700;
+  font-weight: 900;
   margin: 40px 20px;
   text-align: left;
 }
