@@ -40,8 +40,9 @@ header {
   text-align: left;
 
   padding: 0 20px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 0;           /* 🔷 removed top gap */
+  margin-bottom: 20px;     /* 🔷 tightened */
+  line-height: 1;          /* 🔷 tighter box */
 
   max-width: 100%;
   overflow-wrap: break-word;
@@ -58,10 +59,14 @@ header {
 
 .images img {
   display: block;
-  width: calc(100% - 40px); /* 20px left + 20px right padding */
+  width: calc(100% - 40px); /* full width minus padding */
   margin: 0 auto;
   height: auto;
 
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  text-align: left;
 }
