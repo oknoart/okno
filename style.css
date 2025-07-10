@@ -1,18 +1,6 @@
-body {
-  margin: 0;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-color: #F8F2EA;
-
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
 header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
@@ -21,37 +9,12 @@ header {
   height: 50px;
 }
 
-.hero-text {
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 700;
-  text-align: left;
-
-  padding: 0 20px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
+.circle-link {
+  display: block;
+  height: 50px;
 }
-
-.images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px;
-  margin: 20px;
-}
-
-.images img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-h1, h2, h3, h4, h5, h6, p, div {
-  text-align: left;
+.circle-link svg {
+  display: block;
+  height: 50px;
+  width: auto;
 }
