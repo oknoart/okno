@@ -56,20 +56,8 @@ header {
 .image-block img {
   display: block;
   width: calc(100% - 40px);
-  margin: 0 auto 10px;
+  margin: 0 auto;
   height: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
-}
-
-.button-container {
-  width: calc(100% - 40px);
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.buy-button {
-  display: block;
-  width: 100%;
-  height: 50px;
 }
