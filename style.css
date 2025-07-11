@@ -1,15 +1,9 @@
 body {
   margin: 0;
   font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
   background-color: #F8F2EA;
   color: #262626;
-
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
 }
 
 header {
@@ -38,16 +32,11 @@ header {
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 700;
   text-align: left;
-
   padding: 0 20px;
   margin-top: 5px;
   margin-bottom: 20px;
   line-height: 1.15;
-
   max-width: 100%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
 }
 
 .hero-text:last-of-type {
@@ -69,7 +58,6 @@ header {
   width: calc(100% - 40px);
   margin: 0 auto 10px;
   height: auto;
-
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -77,6 +65,8 @@ header {
 .button-container {
   width: calc(100% - 40px);
   margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .buy-button {
