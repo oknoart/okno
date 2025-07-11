@@ -13,8 +13,10 @@ header {
   padding: 20px;
 }
 
-.logo {
+.logo svg {
   height: 50px;
+  width: auto;
+  display: block;
 }
 
 .circle-link {
