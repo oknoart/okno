@@ -51,7 +51,7 @@ header {
 }
 
 .hero-text:last-of-type {
-  margin-bottom: 60px; /* ⬅️ added bottom space at very end */
+  margin-bottom: 60px;
 }
 
 .images {
@@ -63,7 +63,7 @@ header {
 .images img {
   display: block;
   width: calc(100% - 40px);
-  margin: 0 auto 60px; /* ⬅️ adds 60px below each image */
+  margin: 0 auto 60px;
   height: auto;
 
   border: 1px solid #ddd;
