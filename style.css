@@ -40,9 +40,9 @@ header {
   text-align: left;
 
   padding: 0 20px;
-  margin-top: 5px;         /* ✅ reduced but keeps breathing room */
-  margin-bottom: 20px;    
-  line-height: 1.15;       /* ✅ safe, avoids overlaps */
+  margin-top: 5px;
+  margin-bottom: 20px;
+  line-height: 1.15;
 
   max-width: 100%;
   overflow-wrap: break-word;
