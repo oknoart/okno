@@ -74,26 +74,29 @@ header {
   border-radius: 4px;
 }
 
-.caption {
-  font-size: clamp(3rem, 7vw, 7.4rem);
-  font-weight: 400;
-  text-align: left;
+/* NEW: caption row */
+.caption-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 0 20px;
   margin-bottom: 10px;
 }
 
-.button-container {
-  text-align: right;
-  padding: 0 20px;
+.caption {
+  font-size: clamp(3rem, 7vw, 7.4rem);
+  font-weight: 700; /* same weight as hero text */
+  text-align: left;
 }
 
-.button-container button {
-  background-color: #262626;
-  color: #fff;
-  border: none;
-  border-radius: 25px;
+.button-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.button-container svg {
   height: 50px;
-  width: 150px;
-  font-size: 1rem;
+  width: auto;
+  display: block;
   cursor: pointer;
 }
