@@ -1,97 +1,23 @@
-body {
-  margin: 0;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-color: #F8F2EA;
-  color: #262626;
-
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
-.logo {
-  height: 50px;
-}
-
-.logo svg {
-  display: block;
-  height: 50px;
-  width: auto;
-}
-
-.circle-link {
-  display: block;
-  height: 50px;
-}
-
-.circle-link svg {
-  display: block;
-  height: 50px;
-  width: auto;
-}
-
-.hero-text {
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 700;
-  text-align: left;
-  padding: 0 20px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  line-height: 1.15;
-  max-width: 100%;
-}
-
-.hero-text:last-of-type {
-  margin-bottom: 60px;
-}
-
-.images {
-  display: flex;
-  flex-direction: column;
-  margin: 60px 0 20px;
-}
-
-.image-block {
-  margin-bottom: 60px;
-}
-
-.image-block img {
-  display: block;
-  width: calc(100% - 40px);
-  margin: 0 auto 20px;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-/* NEW: caption row */
 .caption-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 0 20px;
+  margin-top: 20px; /* space from image above */
   margin-bottom: 10px;
 }
 
 .caption {
   font-size: clamp(3rem, 7vw, 7.4rem);
-  font-weight: 700; /* same weight as hero text */
+  font-weight: 700; /* fixed */
   text-align: left;
+  line-height: 1;
 }
 
 .button-container {
   display: flex;
   align-items: flex-start;
+  height: 50px;
 }
 
 .button-container svg {
