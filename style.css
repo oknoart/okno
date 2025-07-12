@@ -19,8 +19,10 @@ header {
   padding: 20px;
 }
 
-.logo {
+.logo svg {
   height: 50px;
+  width: auto;
+  display: block;
 }
 
 .circle-link {
@@ -38,16 +40,11 @@ header {
   font-size: clamp(6rem, 15vw, 12rem);
   font-weight: 700;
   text-align: left;
-
   padding: 0 20px;
   margin-top: 5px;
   margin-bottom: 20px;
   line-height: 1.15;
-
   max-width: 100%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
 }
 
 .hero-text:last-of-type {
@@ -60,16 +57,39 @@ header {
   margin: 60px 0 20px;
 }
 
-.images img {
+.image-block {
+  margin-bottom: 60px;
+}
+
+.image-block img {
   display: block;
   width: calc(100% - 40px);
-  margin: 0 auto 60px;
+  margin: 0 auto 20px;
   height: auto;
-
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-h1, h2, h3, h4, h5, h6, p, div {
+.caption {
+  font-size: clamp(3rem, 7vw, 7.4rem);
+  font-weight: 400;
   text-align: left;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  text-align: right;
+  padding: 0 20px;
+}
+
+.button-container button {
+  background-color: #262626;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  height: 50px;
+  width: 150px;
+  font-size: 1rem;
+  cursor: pointer;
 }
