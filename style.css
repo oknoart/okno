@@ -19,10 +19,14 @@ header {
   padding: 20px;
 }
 
+.logo {
+  height: 50px;
+}
+
 .logo svg {
+  display: block;
   height: 50px;
   width: auto;
-  display: block;
 }
 
 .circle-link {
