@@ -103,3 +103,15 @@ header {
   display: block;
   cursor: pointer;
 }
+
+/* =======================
+   Redacted / Blackout text
+   ======================= */
+
+.blacked-out {
+  background-color: #262626;
+  color: #262626;
+  padding: 0 4px;
+  border-radius: 2px;
+  font-weight: 700;
+}
