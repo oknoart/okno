@@ -41,7 +41,7 @@ header {
 }
 
 .hero-text {
-  font-size: clamp(5rem, 13vw, 10orem);
+  font-size: clamp(5rem, 13vw, 10rem);
   font-weight: 700;
   text-align: left;
   padding: 0 20px;
