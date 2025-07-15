@@ -46,7 +46,7 @@ header {
   text-align: left;
   padding: 0 20px;
   margin-top: 5px;
-  margin-bottom: 10px; /* tightened to prevent too much gap */
+  margin-bottom: 10px; /* tighter gap below hero text */
   line-height: 1.15;
   max-width: 100%;
 }
@@ -62,19 +62,22 @@ header {
 }
 
 .image-block {
-  margin-bottom: 60px; /* consistent gap below each block */
+  /* no margin here */
+}
+
+.image-block:not(:last-child) {
+  margin-bottom: 60px; /* adds gap only between blocks */
 }
 
 .image-block img {
   display: block;
   width: calc(100% - 40px);
-  margin: 0 auto 0; /* removed unnecessary margin below */
+  margin: 0 auto; /* no extra bottom margin */
   height: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-/* Removed unused caption/button styles since they’re no longer needed */
 /* =======================
    Redacted / Blackout text
    ======================= */
