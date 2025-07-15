@@ -115,6 +115,9 @@ form {
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .form-input::placeholder {
