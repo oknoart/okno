@@ -111,8 +111,6 @@ form {
   font-family: "Outfit", sans-serif;
   background: #fff;
   color: #262626;
-  border: none;               /* 🚩 no borders */
-  border-radius: 0;           /* 🚩 square corners */
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
@@ -120,7 +118,7 @@ form {
 
 .form-input::placeholder {
   color: #262626;
-  font-size: clamp(3rem, 7vw, 7rem); /* big placeholder text */
+  font-size: clamp(5rem, 13vw, 10rem); /* big placeholder text */
   font-weight: 700;
 }
 
@@ -129,7 +127,7 @@ textarea.form-input {
 }
 
 .form-submit {
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(5rem, 13vw, 10rem);
   font-weight: 700;
   font-family: "Outfit", sans-serif;
   text-align: left;
@@ -138,6 +136,6 @@ textarea.form-input {
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0px;
   width: fit-content;
 }
