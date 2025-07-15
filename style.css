@@ -121,7 +121,7 @@ form {
 }
 
 .form-input::placeholder {
-  color: #262626;
+  color: #F8F2EA;
   font-size: clamp(2rem, 4vw, 6rem); /* big placeholder text */
   font-weight: 700;
 }
