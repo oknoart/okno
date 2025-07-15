@@ -46,7 +46,7 @@ header {
   text-align: left;
   padding: 0 20px;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* tightened to prevent too much gap */
   line-height: 1.15;
   max-width: 100%;
 }
@@ -62,48 +62,19 @@ header {
 }
 
 .image-block {
-  margin-bottom: 60px;
+  margin-bottom: 60px; /* consistent gap below each block */
 }
 
 .image-block img {
   display: block;
   width: calc(100% - 40px);
-  margin: 0 auto;
+  margin: 0 auto 0; /* removed unnecessary margin below */
   height: auto;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-/* NEW: caption row */
-.caption-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0 20px;
-  margin-top: 20px; /* consistent space from image above */
-  margin-bottom: 10px;
-}
-
-.caption {
-  font-size: clamp(3rem, 7vw, 7.4rem);
-  font-weight: 700; /* now same weight as hero text */
-  text-align: left;
-  line-height: 1;
-}
-
-.button-container {
-  display: flex;
-  align-items: flex-start;
-  height: 50px;
-}
-
-.button-container svg {
-  height: 50px;
-  width: auto;
-  display: block;
-  cursor: pointer;
-}
-
+/* Removed unused caption/button styles since they’re no longer needed */
 /* =======================
    Redacted / Blackout text
    ======================= */
