@@ -107,7 +107,7 @@ form {
 }
 
 .form-input {
-  font-size: clamp(3rem, 7vw, 7.4rem);
+  font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
   font-family: "Outfit", sans-serif;
   background: #fff;
@@ -119,7 +119,7 @@ form {
 
 .form-input::placeholder {
   color: #262626;
-  font-size: clamp(3rem, 7vw, 7.4rem); /* big placeholder text */
+  font-size: clamp(2rem, 4vw, 6rem); /* big placeholder text */
   font-weight: 700;
 }
 
@@ -128,7 +128,7 @@ textarea.form-input {
 }
 
 .form-submit {
-  font-size: clamp(3rem, 7vw, 7.4rem);
+  font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
   font-family: "Outfit", sans-serif;
   text-align: left;
