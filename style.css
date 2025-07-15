@@ -108,6 +108,7 @@ form {
 
 .form-input {
   font-size: clamp(3rem, 7vw, 7.4rem);
+  font-weight: 700;
   font-family: "Outfit", sans-serif;
   background: #fff;
   color: #262626;
