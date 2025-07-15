@@ -1,20 +1,26 @@
+/* =========================
+   Global styles
+   ========================= */
 body {
   margin: 0;
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: #F8F2EA;
-  color: #262626;
+  background-color: #F8F2EA; /* off-white background */
+  color: #262626;            /* dark text */
 
-  overflow-wrap: break-word;
+  overflow-wrap: break-word; /* prevent text overflow */
   word-wrap: break-word;
   word-break: break-word;
 }
 
+/* =========================
+   Header (logo + Instagram circle)
+   ========================= */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, circle right */
   align-items: center;
   padding: 20px;
 }
@@ -25,7 +31,7 @@ header {
 
 .logo svg {
   display: block;
-  height: 50px;
+  height: 50px; /* ensures SVG scales properly */
   width: auto;
 }
 
@@ -40,40 +46,50 @@ header {
   width: auto;
 }
 
+/* =========================
+   Hero text styles
+   ========================= */
 .hero-text {
-  font-size: clamp(5rem, 13vw, 10rem);
+  font-size: clamp(5rem, 13vw, 10rem); /* responsive size */
   font-weight: 700;
   text-align: left;
-  padding: 0 20px;
+  padding: 0 20px;           /* consistent horizontal padding */
   margin-top: 5px;
-  margin-bottom: 10px; /* tighter gap below hero text */
+  margin-bottom: 10px;       /* tight gap below hero text */
   line-height: 1.15;
   max-width: 100%;
 }
 
+/* Adds extra bottom margin only for the very last hero-text */
 .hero-text:last-of-type {
   margin-bottom: 60px;
 }
 
+/* =========================
+   Image gallery
+   ========================= */
 .images {
   display: flex;
-  flex-direction: column;
-  margin: 60px 0 20px;
+  flex-direction: column;    /* stack images vertically */
+  margin: 60px 0 20px;       /* top & bottom spacing for gallery */
 }
 
 .image-block img {
   display: block;
-  width: calc(100% - 40px);
-  margin: 0 auto; /* no extra bottom margin */
+  width: calc(100% - 40px);  /* leaves 20px padding on each side */
+  margin: 0 auto;            /* centers the image */
   height: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #ddd;    /* subtle border around images */
+  border-radius: 4px;        /* slightly rounded corners */
 }
 
+/* =========================
+   Utility: Redacted / Blackout text
+   ========================= */
 .blacked-out {
-  background-color: #262626;
-  color: #262626;
-  padding: 0 1px;
-  border-radius: 0px;
-  font-weight: 700;
+  background-color: #262626; /* black box */
+  color: #262626;            /* text matches background → hidden */
+  padding: 0 1px;            /* minimal horizontal padding */
+  border-radius: 0px;        /* square edges */
+  font-weight: 700;          /* bold to fill out the block */
 }
