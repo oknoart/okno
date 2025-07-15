@@ -61,14 +61,6 @@ header {
   margin: 60px 0 20px;
 }
 
-.image-block {
-  /* no margin here */
-}
-
-.image-block:not(:last-child) {
-  margin-bottom: 60px; /* adds gap only between blocks */
-}
-
 .image-block img {
   display: block;
   width: calc(100% - 40px);
@@ -77,10 +69,6 @@ header {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-
-/* =======================
-   Redacted / Blackout text
-   ======================= */
 
 .blacked-out {
   background-color: #262626;
