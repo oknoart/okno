@@ -90,8 +90,8 @@ header {
   background-color: #262626; /* black box */
   color: #262626;            /* text matches background → hidden */
   padding: 0 1px;            /* minimal horizontal padding */
-  line-height: 0.85;
-  font-size: 95%;
+  line-height: 0.70;
+  font-size: 90%;
   border-radius: 0px;        /* square edges */
   font-weight: 700;          /* bold to fill out the block */
 }
