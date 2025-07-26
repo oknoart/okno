@@ -80,7 +80,7 @@ header {
   margin: 0 auto;            /* centers the image */
   height: auto;
   border: 1px solid #ddd;    /* subtle border around images */
-  border-radius: 4px;        /* slightly rounded corners */
+  border-radius: 0px;
 }
 
 /* =========================
@@ -90,6 +90,8 @@ header {
   background-color: #262626; /* black box */
   color: #262626;            /* text matches background → hidden */
   padding: 0 1px;            /* minimal horizontal padding */
+  line-height: 0.85;
+  font-size: 95%;
   border-radius: 0px;        /* square edges */
   font-weight: 700;          /* bold to fill out the block */
 }
