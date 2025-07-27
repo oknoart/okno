@@ -87,19 +87,13 @@ header {
    Utility: Redacted / Blackout text
    ========================= */
 .blacked-out {
-  background-color: #262626;
-  color: #262626;
-  padding: 0 1px;
+  background-color: #262626; /* black box */
+  color: #262626;            /* text matches background → hidden */
+  padding: 0 1px;            /* minimal horizontal padding */
   line-height: 0.70;
   font-size: 90%;
-  border-radius: 0px;
-  font-weight: 700;
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-
-.blacked-out:hover {
-  color: #F8F2EA; /* matches your off-white background */
+  border-radius: 0px;        /* square edges */
+  font-weight: 700;          /* bold to fill out the block */
 }
 
 .form-section {
