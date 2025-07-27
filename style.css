@@ -147,6 +147,5 @@ textarea.form-input {
 }
 
 .form-input:focus {
-  outline: 2px solid #262626;
-  outline-offset: 4px;
+  outline: 5px solid #262626;
 }
