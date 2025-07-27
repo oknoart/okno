@@ -88,23 +88,27 @@ header {
 .blacked-out,
 .redacted {
   position: relative;
-  color: #262626;             /* same as background */
+  display: inline-block;
+  color: #262626;
   font-weight: 700;
 }
 
+/* black bar over top */
+.blacked-out::before,
 .redacted::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
-  height: 0.7em;               /* height of blackout bar */
+  height: 0.6em; /* consistent bar height */
   background-color: #262626;
-  transform-origin: center;
   transform: rotate(var(--angle, 0deg)) translateY(-50%);
+  transform-origin: center;
   pointer-events: none;
   z-index: 1;
 }
+
 
 .redact-delay {
   color: inherit;
