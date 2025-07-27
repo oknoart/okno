@@ -96,6 +96,18 @@ header {
   font-weight: 700;          /* bold to fill out the block */
 }
 
+.redact-delay {
+  color: inherit;
+  background-color: transparent;
+  transition: none;
+  display: inline-block;
+}
+
+.redact-delay.redacted {
+  color: #262626;
+  background-color: #262626;
+}
+
 .form-section {
   padding: 60px 0;
 }
