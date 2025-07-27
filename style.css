@@ -145,3 +145,8 @@ textarea.form-input {
   border-radius: 0px;
   width: fit-content;
 }
+
+.form-input:focus {
+  outline: 2px solid #262626;
+  outline-offset: 4px;
+}
