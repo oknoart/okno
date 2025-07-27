@@ -2,20 +2,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroBlocks = document.querySelectorAll(".hero-text");
 
   heroBlocks.forEach(container => {
-    const original = container.textContent.trim();
-    const words = original.split(/\s+/);
+    const newContent = [];
 
-    // Clear and rebuild innerHTML with span-wrapped words
-    container.innerHTML = words
-      .map(word => `<span class="redact-delay">${word}</span>`)
-      .join(" ");
+    container.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const words = node.textContent.split(/\s+/);
+        words.forEach(word => {
+          if (word.trim() !== "") {
+            const span = document.createElement("span");
+            span.className = "redact-delay";
+            span.textContent = word;
+            newContent.push(span, document.createTextNode(" "));
+          }
+        });
+      } else {
+        newContent.push(node, document.createTextNode(" "));
+      }
+    });
 
-    // Apply redaction one-by-one
+    container.innerHTML = "";
+    newContent.forEach(n => container.appendChild(n));
+
     const spans = container.querySelectorAll(".redact-delay");
     spans.forEach((span, i) => {
       setTimeout(() => {
         span.classList.add("redacted");
-      }, 5000 + i * 500); // starts at 5s, one word every 0.5s
+      }, 5000 + i * 500); // adjust delay here
     });
   });
 });
