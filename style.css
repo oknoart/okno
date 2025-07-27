@@ -108,6 +108,11 @@ header {
   background-color: #262626;
 }
 
+.redacted {
+  display: inline-block; /* already likely set via .redact-delay */
+  transform-origin: center center; /* rotate around the middle */
+}
+
 .form-section {
   padding: 60px 0;
 }
