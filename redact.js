@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Set rotation via CSS variable
         const angle = (Math.random() * 8 - 4).toFixed(2);
         span.style.setProperty('--angle', `${angle}deg`);
-      }, 10000 + i * 5000); // adjust delay here
+      }, 15000 + i * 5000); // adjust delay here
     });
   });
 });
