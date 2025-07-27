@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Apply random angle between -4deg and +4deg
         const angle = (Math.random() * 8 - 4).toFixed(2);
-        span.style.transform = `rotate(${angle}deg)`;
+        span.style.setProperty('--angle', `${angle}deg`);
         span.style.display = "inline-block";
         span.style.transformOrigin = "center center";
       }, 10000 + i * 5000); // adjust delay here
