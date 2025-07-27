@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     spans.forEach((span, i) => {
       setTimeout(() => {
         span.classList.add("redacted");
-      }, 5000 + i * 500); // adjust delay here
+      }, 10000 + i * 2500); // adjust delay here
     });
   });
 });
