@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Send data to Google Apps Script
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbwAk5YTIMFjXanNtwn8b18PnRRQsnJTCZobpcn6tKgKz0TeOmZqNsJ5a5sJkhrIvVUC/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbyQb9CouXzVMP12iR0Zj21cbaQRs9vPXLkPJR0Zpw4DTXwY5RJwzFRJ9O9ZMYgZc2kZ/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
