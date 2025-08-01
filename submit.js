@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("orderNumber", orderNumber);
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbxWEu8SsrIcAaH351Y_S7ypEmQC_v2vr61cf2JkOkZibn46DhCEZFHBgvhUve9DW3C8/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbwhvJTZROsJRIcwbqlO7jTBYXzCGKzL4tOtoL8aRCaTu_B9BXdh_LrRDdrH0XlyIuhj/exec", {
         method: "POST",
         body: formData, // no Content-Type needed
       });
