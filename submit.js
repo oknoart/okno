@@ -7,11 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
     const address = document.getElementById("address")?.value.trim();
-    const productName = document.title.split("–")[0].trim(); // Grabs 'OKNO' or specific title
+    const productName = document.title.split("–")[0].trim(); // e.g. 'OKNO' or actual title
+    const orderNumber = Math.floor(100000 + Math.random() * 900000); // 6-digit number
 
-    const orderNumber = Math.floor(100000 + Math.random() * 900000); // 6-digit
-
-    // Send data to Google Apps Script
     try {
       await fetch("https://script.google.com/macros/s/AKfycbxWEu8SsrIcAaH351Y_S7ypEmQC_v2vr61cf2JkOkZibn46DhCEZFHBgvhUve9DW3C8/exec", {
         method: "POST",
@@ -21,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
           email,
           address,
           orderNumber,
-          productName
+          product: productName  // ✅ corrected key
         }),
       });
     } catch (error) {
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Redirect from your own domain to avoid iframe restrictions
+    // Redirect to Monzo after successful submission
     window.location.href = "https://monzo.com/pay/r/okno-design_22gJn4qY3WMuBS";
   });
 });
