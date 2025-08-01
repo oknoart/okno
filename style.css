@@ -173,3 +173,11 @@ textarea.form-input {
 .form-input:focus {
   outline: 5px solid #262626;
 }
+
+/* =========================
+   Layout container (desktop max width)
+   ========================= */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
