@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const orderNumber = Math.floor(100000 + Math.random() * 900000); // 6-digit order number
 
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbxWEu8SsrIcAaH351Y_S7ypEmQC_v2vr61cf2JkOkZibn46DhCEZFHBgvhUve9DW3C8/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbzmn586M_tHNgw_Z4G2sVIkK8fhX0xXJUYF6UvT_xoSAwMleRYNfesoG1pAFWsGYXvh/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
