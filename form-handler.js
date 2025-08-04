@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
     const address = document.getElementById("address")?.value.trim();
-    const productName = document.getElementById("product")?.value.trim();
+    const product = document.getElementById("product")?.value.trim(); // <-- corrected
     const orderNumber = Math.floor(100000 + Math.random() * 900000);
 
     try {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           email,
           address,
           orderNumber,
-          productName
+          product // not productName
         })
       });
 
@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ✅ Safe redirect AFTER user click
     window.location.href = "https://monzo.com/pay/r/okno-design_22gJn4qY3WMuBS";
   });
 });
