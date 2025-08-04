@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const orderNumber = Math.floor(100000 + Math.random() * 900000);
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzjMkQ3VQd_R_hF0t1ZyhmwlDdJFIEige6yWtBVJwHVfySE3F43iDarEHMlbyKdldhE/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbygcp4toliyweZCl28ee14dJHfnyFLhaVyTlUaLGWXPMfayYiAPWFc_zpFmEt8vVLwF/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
