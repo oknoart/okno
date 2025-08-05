@@ -73,15 +73,6 @@ header {
   margin: 60px 0 20px;
 }
 
-.image-block img {
-  display: block;
-  width: calc(100% - 40px);
-  margin: 0 auto;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 0px;
-}
-
 .image-link {
   position: relative;
   display: block;
