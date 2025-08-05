@@ -79,10 +79,9 @@ header {
 }
 
 .image-block img {
-  display: block;
-  width: calc(100% - 40px);
-  margin: 0 auto;
+  width: 100%; /* now relative to .image-inner */
   height: auto;
+  display: block;
   border: 1px solid #ddd;
   border-radius: 0px;
 }
@@ -104,6 +103,13 @@ header {
 
 .image-block {
   position: relative;
+}
+
+.image-inner {
+  position: relative;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  display: block;
 }
 
 /* =========================
