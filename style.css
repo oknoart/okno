@@ -78,27 +78,26 @@ header {
   display: block;
 }
 
-.image-block img {
-  width: 100%; /* now relative to .image-inner */
+.image-inner img {
+  width: 100%;
   height: auto;
   display: block;
-  border: 1px solid #ddd;
-  border-radius: 0px;
 }
 
 .icon-overlay {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  height: 50px;
-  width: 50px;
-  pointer-events: none; /* ensures clicks go to the link */
+  height: 48px;
+  width: 48px;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .icon-overlay svg {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
 }
 
 .image-block {
@@ -107,9 +106,10 @@ header {
 
 .image-inner {
   position: relative;
+  display: inline-block;
+  border: 1px solid #ddd;
   width: calc(100% - 40px);
   margin: 0 auto;
-  display: block;
 }
 
 /* =========================
