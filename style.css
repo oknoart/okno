@@ -96,6 +96,12 @@ header {
   pointer-events: none; /* ensures clicks go to the link */
 }
 
+.icon-overlay svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .image-block {
   position: relative;
 }
