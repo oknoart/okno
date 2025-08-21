@@ -40,36 +40,8 @@
           </svg>
         </a>
       </header>
-
-      <div id="line1" class="hero-text">Success. See order email for payment link.</div>
-      <div id="line2" class="hero-text" style="display:none">
-        Order <span id="orderRef" class="blacked-out">#—</span> confirmed.
-      </div>
-      <div id="line3" class="hero-text" style="display:none">
-        Payment link will arrive at <span id="emailRef" class="blacked-out">your email</span>.
-      </div>
+<div class="hero-text">Success. See order email for payment link. Check spam.</div>
     </div>
-
-    <script>
-      // Show order number + email when available (from form-handler.js)
-      document.addEventListener("DOMContentLoaded", () => {
-        try {
-          const n = sessionStorage.getItem("okno_orderNumber");
-          const e = sessionStorage.getItem("okno_customerEmail");
-          if (n || e) {
-            document.getElementById("line1").style.display = "none";
-            document.getElementById("line2").style.display = "";
-            document.getElementById("line3").style.display = "";
-            if (n) document.getElementById("orderRef").textContent = "#" + n;
-            if (e) document.getElementById("emailRef").textContent = e;
-          }
-        } catch(_) {}
-        // clear after showing
-        try {
-          sessionStorage.removeItem("okno_orderNumber");
-          sessionStorage.removeItem("okno_customerEmail");
-        } catch(_) {}
-      });
-    </script>
   </body>
+</html>
 </html>
