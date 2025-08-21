@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycby0de4NXUeyKmrbp0HSHG7afZva4rSQWLaWLLGqAnOali1MKMM57ai86ZHt7XZcGHHx/exec",
+        "https://script.google.com/macros/s/AKfycbyS7z_ZVEK_GbRG_VW_aKvZ2AX_SqdJ9knzG3a2x99R6jpyY-j-LvooF_WIn8YDb2EU/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -52,33 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Handle known server rejections
-      if (text === "ERR_CAPTCHA") {
-        alert("Please complete the verification and try again.");
-        // Reset the Turnstile widget so the user can retry
-        try { window.turnstile?.reset?.(); } catch {}
-      } else if (text === "ERR_SPAM") {
-        alert("That didn’t look right. Please reload and try again.");
-        try { window.turnstile?.reset?.(); } catch {}
-      } else {
-        // Generic failure
-        alert("Sorry, something went wrong. Please try again.");
-        try { window.turnstile?.reset?.(); } catch {}
-      }
+if (text === "ERR_CAPTCHA") {
+  alert("Please complete the verification and try again.");
+  try { window.turnstile?.reset?.(); } catch {}
+} else if (text === "ERR_SPAM") {
+  alert("That didn’t look right. Please reload and try again.");
+  try { window.turnstile?.reset?.(); } catch {}
+} else if (text === "ERR_RATE") {
+  alert("You just submitted an order. Please wait 60 seconds and try again.");
+  try { window.turnstile?.reset?.(); } catch {}
+} else {
+  // Generic failure
+  alert("Sorry, something went wrong. Please try again.");
+  try { window.turnstile?.reset?.(); } catch {}
+}
 
-      // Re-enable button after any failure
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "BUY";
-      }
-    } catch (err) {
-      console.error("Form submission failed:", err);
-      alert("Sorry, something went wrong. Please try again.");
-
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "BUY";
-      }
-      try { window.turnstile?.reset?.(); } catch {}
-    }
+// Re-enable button after any failure
+if (submitBtn) {
+  submitBtn.disabled = false;
+  submitBtn.textContent = "BUY";
+}
   });
 });
