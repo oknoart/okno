@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png" type="image/png">
+    <!-- in <head> (or just before </body>) -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
   <body>
     <div class="container">
@@ -52,6 +54,14 @@
   <textarea id="email" name="email" rows="2" class="form-input" placeholder="Email?"></textarea>
   <textarea id="address" name="address" rows="5" class="form-input" placeholder="Address?"></textarea>
   <input type="hidden" id="product" name="product" value="Product1">
+  <!-- inside your <form id="order-form">, above the BUY button -->
+  <!-- Honeypot (humans never see/click it) -->
+  <input type="text" name="website" id="hp" autocomplete="off" tabindex="-1" aria-hidden="true"
+       style="position:absolute;left:-9999px;opacity:0">
+
+  <!-- Turnstile widget -->
+  <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+
   <button type="submit" class="form-submit">BUY</button>
 </form>
 
