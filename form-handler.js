@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxP2WFkUxhRrFwJstgvscR71XOTSMGkmgEilnMDAvCFbjbV8psN561N3h5ot7SjJLRR/exec",
+        "https://script.google.com/macros/s/AKfycby0de4NXUeyKmrbp0HSHG7afZva4rSQWLaWLLGqAnOali1MKMM57ai86ZHt7XZcGHHx/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
