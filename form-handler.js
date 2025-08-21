@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
     const address = document.getElementById("address")?.value.trim();
-    const product = document.getElementById("product")?.value.trim(); // <-- corrected
+    const product = document.getElementById("product")?.value.trim(); // hidden product field
     const orderNumber = Math.floor(100000 + Math.random() * 900000);
 
     try {
@@ -21,18 +21,26 @@ document.addEventListener("DOMContentLoaded", () => {
           email,
           address,
           orderNumber,
-          product // not productName
+          product
         })
       });
 
       if (!response.ok) throw new Error("Script error");
-
     } catch (error) {
       console.error("Form submission failed:", error);
       alert("Sorry, something went wrong. Please try again.");
       return;
     }
 
-    window.location.href = "https://monzo.com/pay/r/okno-design_22gJn4qY3WMuBS";
+    // Store a couple of values for the thank-you screen (not the payment link)
+    try {
+      sessionStorage.setItem("okno_orderNumber", String(orderNumber));
+      sessionStorage.setItem("okno_customerEmail", email || "");
+    } catch (_) {
+      // sessionStorage might be unavailable; it's non-critical
+    }
+
+    // Redirect to local confirmation page (payment link goes by email only)
+    window.location.href = "thanks.html";
   });
 });
