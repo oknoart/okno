@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.textContent = "SENDING…";
       }
 
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzhlDoA-mw9xwY7dLTOPizQscoe8gwEpXELEAo19Yr8co4RFqbxcvX4ka_okPz67LLQ/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzPsP2WiM69nTbnBf6dZcFBaaHvY4lmdedSW3zPRvxUdSiOTU4CFteIRGqcTZZVXV-q/exec", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({ name, email, address, orderNumber, product })
