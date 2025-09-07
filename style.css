@@ -7,13 +7,12 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: #F8F2EA; /* off-white background */
+  background-color: #F8F2EA;
   color: #262626;
-
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
+
 
 /* =========================
    Header (logo + Instagram circle)
@@ -50,6 +49,7 @@ header {
    Hero text styles
    ========================= */
 .hero-text {
+  font-size: 10rem;
   font-size: clamp(5rem, 13vw, 10rem);
   font-weight: 700;
   text-align: left;
@@ -59,6 +59,7 @@ header {
   line-height: 1.15;
   max-width: 100%;
 }
+
 
 .hero-text:last-of-type {
   margin-bottom: 60px;
@@ -79,7 +80,7 @@ header {
   margin: 0 auto;
   height: auto;
   border: 1px solid #ddd;
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 /* =========================
@@ -133,6 +134,7 @@ form {
 }
 
 .form-input {
+  font-size: 6rem; 
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
   font-family: "Outfit", sans-serif;
@@ -148,6 +150,7 @@ form {
 
 .form-input::placeholder {
   color: #262626;
+  font-size: 6rem;
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
 }
@@ -157,6 +160,7 @@ textarea.form-input {
 }
 
 .form-submit {
+  font-size: 6rem;
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
   font-family: "Outfit", sans-serif;
@@ -186,6 +190,7 @@ textarea.form-input {
    Secondary text styles
    ========================= */
 .secondary-text {
+  font-size: 6rem;  
   font-size: clamp(2rem, 4vw, 6rem); /* same as form inputs */
   font-weight: 700;
   text-align: left;
