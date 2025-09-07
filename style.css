@@ -186,12 +186,13 @@ textarea.form-input {
    Secondary text styles
    ========================= */
 .secondary-text {
-  font-size: clamp(3rem, 8vw, 6.2rem); /* golden ratio of hero text */
+  font-size: clamp(2rem, 4vw, 6rem); /* same as form inputs */
   font-weight: 700;
   text-align: left;
-  padding: 0 20px;  /* same spacing as hero */
+  padding: 0 20px;
   margin-top: 20px;
   margin-bottom: 40px;
   line-height: 1.25;
   max-width: 100%;
 }
+
