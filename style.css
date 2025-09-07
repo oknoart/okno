@@ -201,6 +201,12 @@ textarea.form-input {
   max-width: 100%;
 }
 
+.secondary-text a { color: inherit; text-decoration: underline;
+}
+
+.secondary-text a:hover { text-decoration: none;
+}
+
 /* Caption row under images */
 .image-caption {
   display: flex;
