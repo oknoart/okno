@@ -196,3 +196,28 @@ textarea.form-input {
   max-width: 100%;
 }
 
+/* Caption row under images */
+.image-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;        /* aligns with hero & secondary text */
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+
+/* Use the existing .secondary-text inside the row with tighter spacing */
+.image-caption .secondary-text {
+  padding: 0;             /* avoid double padding inside the row */
+  margin: 0;
+}
+
+/* Smaller circle to echo the header button */
+.circle-link.circle-small {
+  height: 40px;           /* header is 50px; this is a bit smaller for captions */
+}
+
+.circle-link.circle-small svg {
+  height: 40px;
+  width: auto;
+}
