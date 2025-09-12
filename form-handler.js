@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const productName = productInput?.value?.trim() || "";
 
   // USE THE SAME /exec URL YOU'RE POSTING TO
-  const EXEC_URL = "https://script.google.com/macros/s/AKfycbzr1Gs_2sczvxr6Y9F0L2iPVzhY4bF2HTnWQAGjqwREpp9Pfl04yo3LY5gioxi20H-S/exec";
+  const EXEC_URL = "https://script.google.com/macros/s/AKfycbzci1ibt8l9AtoEf36TtaUd4sk-4o21i51XjVrSRD32VtwenFwZG4GkdJt-oTYVvsds/exec";
 
   // ---- OOS state flag
   let isOOS = false;
