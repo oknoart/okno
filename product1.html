@@ -97,5 +97,46 @@
 </footer>
     
       <script src="redact-static.js"></script>
+    <script>
+  (function(){
+    const form   = document.getElementById('order-form');
+    const btn    = document.getElementById('buy-btn');
+    const hidden = document.getElementById('product');
+    const PRODUCT_NAME = hidden?.value?.trim() || '';
+    const STOCK_URL = 'https://script.google.com/macros/s/PASTE_YOUR_DEPLOYMENT_ID_HERE/exec?product=' + encodeURIComponent(PRODUCT_NAME);
+
+    let isOOS = false;
+
+    // 1) Fetch stock from Apps Script and flip the button if 0
+    fetch(STOCK_URL, { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        const stock = Number(data && data.stock);
+        if (Number.isFinite(stock) && stock <= 0) {
+          isOOS = true;
+          btn.textContent = 'OUT OF STOCK';
+          btn.classList.add('is-oos');
+          btn.setAttribute('disabled', 'disabled');
+          // belt + braces: change type so Enter key can't submit
+          btn.setAttribute('type', 'button');
+        }
+      })
+      .catch(err => {
+        // if lookup fails, do nothing — keep BUY enabled
+        console.warn('Stock check failed:', err);
+      });
+
+    // 2) Block form submission if marked OOS
+    // Use capture + stopImmediatePropagation so other submit handlers won't run.
+    form.addEventListener('submit', function(e){
+      if (isOOS) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        alert('Sorry — this is sold out.');
+      }
+    }, true);
+  })();
+</script>
+
   </body>
 </html>
