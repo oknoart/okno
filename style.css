@@ -178,6 +178,16 @@ textarea.form-input {
   outline: 5px solid #262626;
 }
 
+/* OUT OF STOCK state */
+.form-submit.is-oos {
+  background: #D40000; /* brutal red */
+  color: #fff;
+}
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+
 /* =========================
    Layout container (desktop max width)
    ========================= */
