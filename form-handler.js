@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Honeypot (must exist as a hidden text input with id="hp")
     const website = document.getElementById("hp")?.value || "";
 
+    let succeeded = false; // <— track success to avoid re-enabling after redirect
+
     try {
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -47,30 +49,36 @@ document.addEventListener("DOMContentLoaded", () => {
       const text = (await response.text()).trim();
       if (response.ok && text === "OK") {
         // Success → local thank-you page (payment link is only in the email)
+        succeeded = true;
         window.location.href = "thanks.html";
         return;
       }
 
       // Handle known server rejections
-if (text === "ERR_CAPTCHA") {
-  alert("Please complete the verification and try again.");
-  try { window.turnstile?.reset?.(); } catch {}
-} else if (text === "ERR_SPAM") {
-  alert("That didn’t look right. Please reload and try again.");
-  try { window.turnstile?.reset?.(); } catch {}
-} else if (text === "ERR_RATE") {
-  alert("You just submitted an order. Please wait 60 seconds and try again.");
-  try { window.turnstile?.reset?.(); } catch {}
-} else {
-  // Generic failure
-  alert("Sorry, something went wrong. Please try again.");
-  try { window.turnstile?.reset?.(); } catch {}
-}
-
-// Re-enable button after any failure
-if (submitBtn) {
-  submitBtn.disabled = false;
-  submitBtn.textContent = "BUY";
-}
+      if (text === "ERR_CAPTCHA") {
+        alert("Please complete the verification and try again.");
+        try { window.turnstile?.reset?.(); } catch {}
+      } else if (text === "ERR_SPAM") {
+        alert("That didn’t look right. Please reload and try again.");
+        try { window.turnstile?.reset?.(); } catch {}
+      } else if (text === "ERR_RATE") {
+        alert("You just submitted an order. Please wait 60 seconds and try again.");
+        try { window.turnstile?.reset?.(); } catch {}
+      } else {
+        // Generic failure
+        alert("Sorry, something went wrong. Please try again.");
+        try { window.turnstile?.reset?.(); } catch {}
+      }
+    } catch (err) {
+      console.error("Form submission failed:", err);
+      alert("Sorry, something went wrong. Please try again.");
+      try { window.turnstile?.reset?.(); } catch {}
+    } finally {
+      // Re-enable button after any failure
+      if (!succeeded && submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "BUY";
+      }
+    }
   });
 });
