@@ -138,5 +138,33 @@
   })();
 </script>
 
+    <script>
+  (function() {
+    const btn = document.getElementById('buy-btn');
+    const product = document.getElementById('product')?.value?.trim() || '';
+    if (!btn || !product) return;
+
+    // Use the SAME exec URL as in form-handler.js (paste yours below)
+    const EXEC_URL = "https://script.google.com/macros/s/AKfycbzci1ibt8l9AtoEf36TtaUd4sk-4o21i51XjVrSRD32VtwenFwZG4GkdJt-oTYVvsds/exec";
+
+    // JSONP callback must be global
+    window.__oknoStockCB = function (data) {
+      const stock = Number(data && data.stock);
+      if (Number.isFinite(stock) && stock <= 0) {
+        btn.textContent = "OUT OF STOCK";
+        btn.classList.add("is-oos");
+        btn.disabled = true;
+        btn.setAttribute('type', 'button'); // belt + braces
+      }
+    };
+
+    // Inject <script src="...&callback=__oknoStockCB">
+    const s = document.createElement('script');
+    s.src = `${EXEC_URL}?product=${encodeURIComponent(product)}&callback=__oknoStockCB`;
+    document.head.appendChild(s);
+  })();
+</script>
+
+
   </body>
 </html>
