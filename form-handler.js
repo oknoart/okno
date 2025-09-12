@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzWyBlvL1X1uBUoEeJuJ8Y4GhqOZVzzJujLAsz8v6kwa51m4lWLp7AzIgiW9-oh58bO/exec",
+        "https://script.google.com/macros/s/AKfycbwSVCtm_-PhX8QiKTqYoPRv4Xu6KOxe0rW_JaSsvTtHGNrHO5eWlcV4U8Ggko2BDKzk/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
