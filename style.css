@@ -188,6 +188,9 @@ textarea.form-input {
   opacity: 0.95;
 }
 
+.form-submit.is-oos { background:#D40000; color:#fff; }
+.form-submit:disabled { cursor:not-allowed; opacity:.95; }
+
 /* =========================
    Layout container (desktop max width)
    ========================= */
