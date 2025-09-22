@@ -232,3 +232,23 @@ textarea.form-input {
   height: 40px;
   width: auto;
 }
+
+/* Footer should align with page content */
+.site-footer{
+  max-width: 900px;               /* same as site */
+  margin: 48px auto 24px;         /* center it like the container */
+  padding-inline: clamp(16px, 4vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* kill any full-bleed behavior inherited from .image-caption */
+.site-footer.image-caption{
+  width: auto;
+  gap: 0;
+}
+
+/* tidy the icon rendering */
+.site-footer svg{ display:block; }
+
