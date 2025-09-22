@@ -252,3 +252,9 @@ textarea.form-input {
 /* tidy the icon rendering */
 .site-footer svg{ display:block; }
 
+/* Align single-line promos (like the stencil download) with main content */
+.download-cta{
+  max-width: 900px;
+  margin: 24px auto;
+  padding-inline: clamp(16px, 4vw, 24px);
+}
