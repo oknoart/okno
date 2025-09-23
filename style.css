@@ -18,6 +18,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding-blo
 
 .images{display:flex;flex-direction:column;margin:60px 0 20px}
 .image-block img{width:100%;height:auto;border:1px solid #ddd;border-radius:0}
+.image-block:not(:last-child){margin-bottom:40px}
 
 .image-caption{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:8px 0 40px}
 .image-caption .secondary-text{margin:0}
