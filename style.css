@@ -1,4 +1,20 @@
 /* =========================
+   Root + sensible globals
+   ========================= */
+:root {
+  --bg: #F8F2EA;
+  --fg: #262626;
+  --gutter: 20px;
+  --maxw: 900px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+img, svg, video { display:block; max-width:100%; height:auto; }
+
+/* =========================
    Global styles
    ========================= */
 body {
@@ -7,12 +23,10 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: #F8F2EA;
-  color: #262626;
+  background-color: var(--bg);
+  color: var(--fg);
   overflow-wrap: anywhere;
-  word-break: break-word;
 }
-
 
 /* =========================
    Header (logo + Instagram circle)
@@ -21,45 +35,25 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: var(--gutter);
 }
 
-.logo {
-  height: 50px;
-}
+.logo, .circle-link { height: 50px; }
+.logo svg, .circle-link svg { height: 100%; width: auto; }
 
-.logo svg {
-  display: block;
-  height: 50px;
-  width: auto;
-}
-
-.circle-link {
-  display: block;
-  height: 50px;
-}
-
-.circle-link svg {
-  display: block;
-  height: 50px;
-  width: auto;
-}
+.circle-link.circle-small { height: 40px; }
 
 /* =========================
    Hero text styles
    ========================= */
 .hero-text {
-  font-size: 10rem;
   font-size: clamp(5rem, 13vw, 10rem);
   font-weight: 700;
-  text-align: left;
-  padding: 0 20px;
+  padding: 0 var(--gutter);
   margin-top: 5px;
   margin-bottom: 10px;
   line-height: 1.15;
-  max-width: 100%;
 }
-
 
 .hero-text:last-of-type {
   margin-bottom: 60px;
@@ -74,13 +68,11 @@ header {
   margin: 60px 0 20px;
 }
 
+.image-block { padding-inline: var(--gutter); }
 .image-block img {
-  display: block;
-  width: calc(100% - 40px);
-  margin: 0 auto;
+  width: 100%;
   height: auto;
   border: 1px solid #ddd;
-  border-radius: 0;
 }
 
 /* =========================
@@ -90,11 +82,10 @@ header {
 .redacted {
   position: relative;
   display: inline-block;
-  color: #262626;
+  color: var(--fg);
   font-weight: 700;
 }
 
-/* black bar over top */
 .blacked-out::before,
 .redacted::before {
   content: "";
@@ -102,14 +93,13 @@ header {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 0.6em; /* consistent bar height */
-  background-color: #262626;
+  height: 0.6em;
+  background-color: var(--fg);
   transform: rotate(var(--angle, 0deg)) translateY(-50%);
   transform-origin: center;
   pointer-events: none;
   z-index: 1;
 }
-
 
 .redact-delay {
   color: inherit;
@@ -121,140 +111,97 @@ header {
 /* =========================
    Form styles
    ========================= */
-.form-section {
-  padding: 20px 0;
-}
+.form-section { padding: 20px 0; }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0 20px;
-  max-width: 100%;
+  padding: 0 var(--gutter);
 }
 
 .form-input {
-  font-size: 6rem; 
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
-  font-family: "Outfit", sans-serif;
   background: #fff;
-  color: #262626;
+  color: var(--fg);
   padding: 20px;
   width: 100%;
-  box-sizing: border-box;
   border: none;
-  outline: none;
   box-shadow: none;
 }
 
 .form-input::placeholder {
-  color: #262626;
-  font-size: 6rem;
+  color: var(--fg);
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
 }
 
-textarea.form-input {
-  resize: none;
-}
+textarea.form-input { resize: none; }
 
 .form-submit {
-  font-size: 6rem;
   font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
-  font-family: "Outfit", sans-serif;
   text-align: left;
   padding: 20px;
-  background-color: #262626;
+  background-color: var(--fg);
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 0;
   width: fit-content;
 }
 
-.form-input:focus {
-  outline: 5px solid #262626;
-}
+.form-input:focus { outline: 5px solid var(--fg); }
 
 /* =========================
    Layout container (desktop max width)
    ========================= */
 .container {
-  max-width: 900px;
+  max-width: var(--maxw);
   margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 24px); /* moved here; reuse below */
 }
 
 /* =========================
    Secondary text styles
    ========================= */
 .secondary-text {
-  font-size: 6rem;  
-  font-size: clamp(2rem, 4vw, 6rem); /* same as form inputs */
+  font-size: clamp(2rem, 4vw, 6rem);
   font-weight: 700;
-  text-align: left;
-  padding: 0 20px;
+  padding: 0 var(--gutter);
   margin-top: 20px;
   margin-bottom: 40px;
   line-height: 1.25;
-  max-width: 100%;
 }
 
-.secondary-text a { color: inherit; text-decoration: underline;
-}
+.secondary-text a { color: inherit; text-decoration: underline; }
+.secondary-text a:hover { text-decoration: none; }
 
-.secondary-text a:hover { text-decoration: none;
-}
-
-/* Caption row under images */
 .image-caption {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;        /* aligns with hero & secondary text */
+  padding: 0 var(--gutter);
   margin-top: 8px;
   margin-bottom: 40px;
 }
 
-/* Use the existing .secondary-text inside the row with tighter spacing */
-.image-caption .secondary-text {
-  padding: 0;             /* avoid double padding inside the row */
-  margin: 0;
-}
+.image-caption .secondary-text { padding: 0; margin: 0; }
 
-/* Smaller circle to echo the header button */
-.circle-link.circle-small {
-  height: 40px;           /* header is 50px; this is a bit smaller for captions */
-}
-
-.circle-link.circle-small svg {
-  height: 40px;
-  width: auto;
-}
-
-/* Footer should align with page content */
+/* =========================
+   Footer + promo align with container
+   ========================= */
 .site-footer{
-  max-width: 900px;               /* same as site */
-  margin: 48px auto 24px;         /* center it like the container */
-  padding-inline: clamp(16px, 4vw, 24px);
+  max-width: var(--maxw);
+  margin: 48px auto 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* kill any full-bleed behavior inherited from .image-caption */
-.site-footer.image-caption{
-  width: auto;
-  gap: 0;
-}
+.site-footer.image-caption { width: auto; gap: 0; }
 
-/* tidy the icon rendering */
-.site-footer svg{ display:block; }
-
-/* Align single-line promos (like the stencil download) with main content */
 .download-cta{
-  max-width: 900px;
+  max-width: var(--maxw);
   margin: 24px auto;
-  padding-inline: clamp(16px, 4vw, 24px);
 }
