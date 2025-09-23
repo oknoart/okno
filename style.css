@@ -60,6 +60,25 @@ header {
 }
 
 /* =========================
+   Secondary text styles
+   ========================= */
+.secondary-text {
+  font-size: clamp(2rem, 4vw, 6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.secondary-text a {
+  color: inherit;
+  text-decoration: underline;
+}
+.secondary-text a:hover {
+  text-decoration: none;
+}
+
+/* =========================
    Image gallery
    ========================= */
 .images {
