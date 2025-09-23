@@ -41,7 +41,7 @@ header {
 .logo, .circle-link { height: 50px; }
 .logo svg, .circle-link svg { height: 100%; width: auto; }
 
-/* Support optional small circle variant */
+/* Optional small circle variant */
 .circle-link.circle-small { height: 40px; }
 
 /* =========================
@@ -55,9 +55,7 @@ header {
   margin-bottom: 10px;
 }
 
-.hero-text:last-of-type {
-  margin-bottom: 60px;
-}
+.hero-text:last-of-type { margin-bottom: 60px; }
 
 /* =========================
    Secondary text styles
@@ -70,13 +68,8 @@ header {
   margin-bottom: 40px;
 }
 
-.secondary-text a {
-  color: inherit;
-  text-decoration: underline;
-}
-.secondary-text a:hover {
-  text-decoration: none;
-}
+.secondary-text a { color: inherit; text-decoration: underline; }
+.secondary-text a:hover { text-decoration: none; }
 
 /* =========================
    Image gallery
@@ -95,13 +88,38 @@ header {
   border-radius: 0;
 }
 
-/* Optional caption row under images (kept minimal) */
+/* =========================
+   Image caption row: text + circle
+   Works in two scenarios:
+   1) With a wrapper: <div class="image-caption"><div class="secondary-text">…</div><a class="circle-link">…</a></div>
+   2) Without a wrapper, when a .circle-link follows .secondary-text inside .image-block
+   ========================= */
+
+/* With wrapper */
 .image-caption {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: baseline;           /* nicer alignment with big type */
+  justify-content: space-between;  /* text left, circle right */
+  gap: 12px;
   margin-top: 8px;
   margin-bottom: 40px;
+}
+.image-caption .secondary-text { margin: 0; }
+.image-caption .circle-link { height: clamp(28px, 5vw, 50px); }
+.image-caption .circle-link svg { height: 100%; width: auto; }
+
+/* Without wrapper: circle immediately after .secondary-text */
+.image-block .secondary-text + .circle-link {
+  display: inline-flex;
+  align-items: center;
+  height: clamp(28px, 5vw, 50px);
+  float: right;                     /* sends circle to right edge of block */
+  margin-left: 12px;                /* small gap from the text */
+}
+.image-block::after {
+  content: "";                      /* clear the float to prevent overlap */
+  display: block;
+  clear: both;
 }
 
 /* =========================
@@ -115,7 +133,6 @@ header {
   font-weight: 700;
 }
 
-/* black bar over top */
 .blacked-out::before,
 .redacted::before {
   content: "";
