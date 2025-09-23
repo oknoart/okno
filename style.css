@@ -1,232 +1,44 @@
-/* =========================
-   Root + sensible globals
-   ========================= */
-:root {
-  --bg: #F8F2EA;
-  --fg: #262626;
-  --maxw: 900px;
-  --gutter: 20px;
-}
+:root{--bg:#F8F2EA;--fg:#262626;--maxw:900px;--gutter:20px}
+*,*:before,*:after{box-sizing:border-box}
+img,svg,video{display:block;max-width:100%;height:auto}
 
-*,
-*::before,
-*::after { box-sizing: border-box; }
+body{margin:0;font-family:"Outfit",sans-serif;font-optical-sizing:auto;font-weight:400;font-style:normal;background:var(--bg);color:var(--fg);overflow-wrap:anywhere}
 
-img, svg, video { display:block; max-width:100%; height:auto; }
+header{display:flex;justify-content:space-between;align-items:center;padding-block:20px}
+.logo,.circle-link{height:50px}
+.logo svg,.circle-link svg{height:100%;width:auto}
+.circle-link.circle-small{height:40px}
 
-/* =========================
-   Global styles
-   ========================= */
-body {
-  margin: 0;
-  font-family: "Outfit", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-color: var(--bg);
-  color: var(--fg);
-  overflow-wrap: anywhere; /* replaces word-wrap/word-break duplicates */
-}
+.hero-text{font-size:clamp(5rem,13vw,10rem);font-weight:700;line-height:1.15;margin:5px 0 10px}
+.hero-text:last-of-type{margin-bottom:60px}
 
-/* =========================
-   Header (logo + circle link)
-   ========================= */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-block: 20px; /* vertical only; side padding comes from .container */
-}
+.secondary-text{font-size:clamp(2rem,4vw,6rem);font-weight:700;line-height:1.25;margin:20px 0 40px}
+.secondary-text a{color:inherit;text-decoration:underline}
+.secondary-text a:hover{text-decoration:none}
 
-.logo, .circle-link { height: 50px; }
-.logo svg, .circle-link svg { height: 100%; width: auto; }
+.images{display:flex;flex-direction:column;margin:60px 0 20px}
+.image-block img{width:100%;height:auto;border:1px solid #ddd;border-radius:0}
 
-/* Optional small circle variant */
-.circle-link.circle-small { height: 40px; }
+.image-caption{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:8px 0 40px}
+.image-caption .secondary-text{margin:0}
+.image-caption .circle-link{height:clamp(28px,5vw,50px)}
+.image-caption .circle-link svg{height:100%;width:auto}
+.image-block .secondary-text+.circle-link{display:inline-flex;align-items:center;height:clamp(28px,5vw,50px);float:right;margin-left:12px}
+.image-block::after{content:"";display:block;clear:both}
 
-/* =========================
-   Hero text styles
-   ========================= */
-.hero-text {
-  font-size: clamp(5rem, 13vw, 10rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
+.blacked-out,.redacted{position:relative;display:inline-block;color:var(--fg);font-weight:700}
+.blacked-out::before,.redacted::before{content:"";position:absolute;top:50%;left:0;width:100%;height:.6em;background:var(--fg);transform:rotate(var(--angle,0deg)) translateY(-50%);transform-origin:center;pointer-events:none;z-index:1}
+.redact-delay{color:inherit;background:transparent;transition:none;display:inline-block}
 
-.hero-text:last-of-type { margin-bottom: 60px; }
+.form-section{padding:20px 0}
+form{display:flex;flex-direction:column;gap:20px}
+.form-input{font-size:clamp(2rem,4vw,6rem);font-weight:700;font-family:"Outfit",sans-serif;background:#fff;color:var(--fg);padding:20px;width:100%;border:none;box-shadow:none}
+.form-input::placeholder{color:var(--fg);font-size:clamp(2rem,4vw,6rem);font-weight:700}
+textarea.form-input{resize:none}
+.form-submit{font-size:clamp(2rem,4vw,6rem);font-weight:700;font-family:"Outfit",sans-serif;text-align:left;padding:20px;background:var(--fg);color:#fff;border:none;cursor:pointer;border-radius:0;width:fit-content}
+.form-input:focus{outline:5px solid var(--fg)}
 
-/* =========================
-   Secondary text styles
-   ========================= */
-.secondary-text {
-  font-size: clamp(2rem, 4vw, 6rem);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
+.container{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
 
-.secondary-text a { color: inherit; text-decoration: underline; }
-.secondary-text a:hover { text-decoration: none; }
-
-/* =========================
-   Image gallery
-   ========================= */
-.images {
-  display: flex;
-  flex-direction: column;
-  margin: 60px 0 20px;
-}
-
-/* No more calc() gutter hack; container provides side padding */
-.image-block img {
-  width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 0;
-}
-
-/* =========================
-   Image caption row: text + circle
-   Works in two scenarios:
-   1) With a wrapper: <div class="image-caption"><div class="secondary-text">…</div><a class="circle-link">…</a></div>
-   2) Without a wrapper, when a .circle-link follows .secondary-text inside .image-block
-   ========================= */
-
-/* With wrapper */
-.image-caption {
-  display: flex;
-  align-items: baseline;           /* nicer alignment with big type */
-  justify-content: space-between;  /* text left, circle right */
-  gap: 12px;
-  margin-top: 8px;
-  margin-bottom: 40px;
-}
-.image-caption .secondary-text { margin: 0; }
-.image-caption .circle-link { height: clamp(28px, 5vw, 50px); }
-.image-caption .circle-link svg { height: 100%; width: auto; }
-
-/* Without wrapper: circle immediately after .secondary-text */
-.image-block .secondary-text + .circle-link {
-  display: inline-flex;
-  align-items: center;
-  height: clamp(28px, 5vw, 50px);
-  float: right;                     /* sends circle to right edge of block */
-  margin-left: 12px;                /* small gap from the text */
-}
-.image-block::after {
-  content: "";                      /* clear the float to prevent overlap */
-  display: block;
-  clear: both;
-}
-
-/* =========================
-   Utility: Redacted / Blackout text
-   ========================= */
-.blacked-out,
-.redacted {
-  position: relative;
-  display: inline-block;
-  color: var(--fg);
-  font-weight: 700;
-}
-
-.blacked-out::before,
-.redacted::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 0.6em; /* consistent bar height */
-  background-color: var(--fg);
-  transform: rotate(var(--angle, 0deg)) translateY(-50%);
-  transform-origin: center;
-  pointer-events: none;
-  z-index: 1; /* ensure bar sits above text */
-}
-
-/* Used by redact.js to stage words before blackout */
-.redact-delay {
-  color: inherit;
-  background-color: transparent;
-  transition: none;
-  display: inline-block;
-}
-
-/* =========================
-   Form styles
-   ========================= */
-.form-section { padding: 20px 0; }
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  /* side padding removed; .container handles gutters */
-}
-
-.form-input {
-  font-size: clamp(2rem, 4vw, 6rem);
-  font-weight: 700;
-  font-family: "Outfit", sans-serif;
-  background: #fff;
-  color: var(--fg);
-  padding: 20px;
-  width: 100%;
-  border: none;
-  box-shadow: none;
-}
-
-.form-input::placeholder {
-  color: var(--fg);
-  font-size: clamp(2rem, 4vw, 6rem);
-  font-weight: 700;
-}
-
-textarea.form-input { resize: none; }
-
-.form-submit {
-  font-size: clamp(2rem, 4vw, 6rem);
-  font-weight: 700;
-  font-family: "Outfit", sans-serif;
-  text-align: left;
-  padding: 20px;
-  background-color: var(--fg);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 0;
-  width: fit-content;
-}
-
-.form-input:focus { outline: 5px solid var(--fg); }
-
-/* =========================
-   Layout container (desktop max width)
-   ========================= */
-.container {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding-inline: var(--gutter); /* single source of truth for gutters */
-}
-
-/* =========================
-   Footer / promo (if placed outside .container in HTML)
-   ========================= */
-.site-footer,
-.download-cta {
-  max-width: var(--maxw);
-  margin: 24px auto;
-  padding-inline: var(--gutter);
-}
-
-.site-footer {
-  margin-top: 48px;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+.site-footer,.download-cta{max-width:var(--maxw);margin:24px auto;padding-inline:var(--gutter)}
+.site-footer{margin-top:48px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between}
