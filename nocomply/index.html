@@ -116,15 +116,5 @@
     </svg>
   </a>
 </footer>
-    <script>
-if ('serviceWorker' in navigator) {
-  (function () {
-    var isGh = location.hostname.endsWith('github.io');
-    var repo = location.pathname.split('/')[1] || '';
-    var root = isGh ? '/' + repo + '/' : '/';
-    navigator.serviceWorker.register(root + 'sw.js', { scope: root });
-  })();
-}
-</script>
   </body>
 </html>
