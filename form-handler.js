@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok && text === "OK") {
         // Success → local thank-you page (payment link is only in the email)
         succeeded = true;
-        window.location.href = "thanks.html";
+        window.location.href = "./thanks/";
         return;
       }
 
