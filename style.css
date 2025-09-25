@@ -4,6 +4,10 @@ img,svg,video{display:block;max-width:100%;height:auto}
 
 body{margin:0;font-family:"Outfit",sans-serif;font-optical-sizing:auto;font-weight:400;font-style:normal;background:var(--bg);color:var(--fg);overflow-wrap:anywhere}
 
+a,a:visited{color:inherit;text-decoration:underline;font-weight:700}
+a:hover,a:active{text-decoration:underline}
+.circle-link{text-decoration:none;font-weight:inherit}
+
 header{display:flex;justify-content:space-between;align-items:center;padding-block:20px}
 .logo,.circle-link{height:50px}
 .logo svg,.circle-link svg{height:100%;width:auto}
@@ -14,7 +18,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding-blo
 
 .secondary-text{font-size:clamp(2rem,4vw,6rem);font-weight:700;line-height:1.25;margin:20px 0 40px}
 .secondary-text a{color:inherit;text-decoration:underline}
-.secondary-text a:hover{text-decoration:none}
+.secondary-text a:hover{text-decoration:underline}
 
 .images{display:flex;flex-direction:column;margin:60px 0 20px}
 .image-block img{width:100%;height:auto;border:1px solid #ddd;border-radius:0}
