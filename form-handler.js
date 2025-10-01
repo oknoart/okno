@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwSVCtm_-PhX8QiKTqYoPRv4Xu6KOxe0rW_JaSsvTtHGNrHO5eWlcV4U8Ggko2BDKzk/exec",
+        "https://script.google.com/macros/s/AKfycbzQ_r1x_-reHS2zcJA5Atg1Z2v48AeWNlnWc9qeT92vDOqXVKLptc6KYYvRCUqm4lGv/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -47,28 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       const text = (await response.text()).trim();
+
+      // Success → local thank-you page (payment link is only in the email)
       if (response.ok && text === "OK") {
-        // Success → local thank-you page (payment link is only in the email)
         succeeded = true;
         window.location.href = "../thanks/";
         return;
       }
 
-      // Handle known server rejections
+      // Handle known server rejections (plain-text codes)
       if (text === "ERR_CAPTCHA") {
         alert("Please complete the verification and try again.");
-        try { window.turnstile?.reset?.(); } catch {}
       } else if (text === "ERR_SPAM") {
         alert("That didn’t look right. Please reload and try again.");
-        try { window.turnstile?.reset?.(); } catch {}
       } else if (text === "ERR_RATE") {
         alert("You just submitted an order. Please wait 60 seconds and try again.");
-        try { window.turnstile?.reset?.(); } catch {}
+      } else if (text.startsWith("ERR_NON_UK")) {
+        // Extract the human message after the colon, if present
+        const humanMsg = text.split(":").slice(1).join(":").trim()
+          || "Sorry — I only ship within the UK. Please provide a UK delivery address with a valid postcode.";
+        alert(humanMsg);
       } else {
         // Generic failure
         alert("Sorry, something went wrong. Please try again.");
-        try { window.turnstile?.reset?.(); } catch {}
       }
+
+      // Reset Turnstile on any failure
+      try { window.turnstile?.reset?.(); } catch {}
     } catch (err) {
       console.error("Form submission failed:", err);
       alert("Sorry, something went wrong. Please try again.");
