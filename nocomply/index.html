@@ -56,35 +56,56 @@
           <div class="secondary-text">4 colour MTN 94 spray paint on A4 2mm greyboard.</div>
         </div>
       <div class="form-section">
-<form id="order-form">
-  <textarea id="name" name="name" rows="2" class="form-input" placeholder="Name?"></textarea>
-  <textarea id="email" name="email" rows="2" class="form-input" placeholder="Email?"></textarea>
-  <textarea id="address" name="address" rows="5" class="form-input" placeholder="Address?"></textarea>
-  <input type="hidden" id="product" name="product" value="no-comply">
-  <!-- inside your <form id="order-form">, above the BUY button -->
-  <!-- Honeypot (humans never see/click it) -->
-  <input type="text" name="website" id="hp" autocomplete="off" tabindex="-1" aria-hidden="true"
-       style="position:absolute;left:-9999px;opacity:0">
+<div class="form-section">
+  <form id="order-form">
+    <textarea id="name" name="name" rows="2" class="form-input" placeholder="Name?" required></textarea>
 
-  <!-- Turnstile widget -->
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAABuBFSLTdJ_mepsn"></div>
+    <!-- real email input (browser will block obvious junk) -->
+    <input id="email" name="email" type="email" class="form-input" placeholder="Email?" required>
 
-<!-- IN STOCK (uncomment this, comment the OOS one) -->
-<button type="submit" class="form-submit">BUY</button>
-<!-- OUT OF STOCK (comment this when in stock) -->
-<!-- <button type="button" class="form-submit" disabled aria-disabled="true">OUT OF STOCK</button> -->
-</form>
-<script>
-  (function () {
-    const btn = document.getElementById('buy-btn');
-    const form = document.getElementById('order-form');
-    if (!btn || btn.dataset.oos !== 'true') return;
-    btn.textContent = 'OUT OF STOCK';
-    btn.disabled = true;
-    btn.type = 'button';           // belt + braces
-    form?.addEventListener('submit', e => e.preventDefault(), true);
-  })();
-</script>
+    <textarea id="address" name="address" rows="5" class="form-input" placeholder="Address? (include UK postcode)" required></textarea>
+
+    <input type="hidden" id="product" name="product" value="no-comply">
+
+    <!-- Honeypot (leave blank) -->
+    <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" aria-hidden="true"
+           style="position:absolute;left:-9999px;opacity:0;height:0;width:0;padding:0;border:0">
+
+    <!-- Turnstile token holder + widget -->
+    <input type="hidden" id="cfToken" name="cfToken">
+    <div class="cf-turnstile"
+         data-sitekey="0x4AAAAAABuBFSLTdJ_mepsn"
+         data-callback="oknoSetCFToken"></div>
+
+    <!-- IN STOCK (uncomment this, comment the OOS one) -->
+    <button id="buy-btn" type="submit" class="form-submit">BUY</button>
+    <!-- OUT OF STOCK (comment this when in stock) -->
+    <!-- <button id="buy-btn" type="button" class="form-submit" disabled aria-disabled="true">OUT OF STOCK</button> -->
+  </form>
+
+  <!-- Cloudflare Turnstile loader -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+
+  <script>
+    (function () {
+      // OOS toggle keeps working; now the button has the expected id
+      const btn = document.getElementById('buy-btn');
+      const form = document.getElementById('order-form');
+      if (btn && btn.dataset.oos === 'true') {
+        btn.textContent = 'OUT OF STOCK';
+        btn.disabled = true;
+        btn.type = 'button';
+        form?.addEventListener('submit', e => e.preventDefault(), true);
+      }
+
+      // Fallback Turnstile callback in case form-handler.js hasn't loaded yet
+      window.oknoSetCFToken = window.oknoSetCFToken || function (token) {
+        const cf = document.getElementById('cfToken');
+        if (cf) cf.value = token || '';
+      };
+    })();
+  </script>
+</div>
 
 <script src="../form-handler.js"></script>
   </form>
