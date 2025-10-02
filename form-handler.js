@@ -1,27 +1,52 @@
-// form-handler.js
+// form-handler.js (updated)
+// - Client-side checks for email + UK postcode + minimal address structure
+// - Uses Turnstile callback -> hidden #cfToken
+// - Uses honeypot #website (must stay empty)
+// - Posts to your existing Apps Script endpoint
+// - Resets Turnstile + button state on failure; redirects to /thanks/ on success
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("order-form");
-  if (!form) return; // safe if this file is included on pages without the form
+  if (!form) return;
 
   const submitBtn = form.querySelector('button[type="submit"]');
+
+  // Email + UK postcode regex (same spirit as server)
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const ukPostcodeInText = /\b(?:GIR ?0AA|[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2})\b/i;
+
+  // Turnstile callback (matches data-callback="oknoSetCFToken" in the form HTML)
+  window.oknoSetCFToken = (token) => {
+    const cf = document.getElementById("cfToken");
+    if (cf) cf.value = token || "";
+  };
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Collect fields
-    const name = document.getElementById("name")?.value.trim();
-    const email = document.getElementById("email")?.value.trim();
-    const address = document.getElementById("address")?.value.trim();
-    const product = document.getElementById("product")?.value.trim(); // hidden product field
+    const name       = document.getElementById("name")?.value.trim() || "";
+    const email      = document.getElementById("email")?.value.trim() || "";
+    const address    = document.getElementById("address")?.value.trim() || "";
+    const product    = document.getElementById("product")?.value.trim() || "";
+    const website    = document.getElementById("website")?.value.trim() || ""; // honeypot
+    const cfToken    = document.getElementById("cfToken")?.value.trim() || ""; // Turnstile token
     const orderNumber = Math.floor(100000 + Math.random() * 900000);
 
-    // Turnstile token (Cloudflare auto-injects this hidden input)
-    const cfToken = document.querySelector('input[name="cf-turnstile-response"]')?.value || "";
+    // Lightweight client-side validation (server also enforces)
+    if (!emailRe.test(email)) {
+      alert("Please use a real email address.");
+      return;
+    }
+    if (!ukPostcodeInText.test(address)) {
+      alert("UK orders need a full UK postcode in the address.");
+      return;
+    }
+    if (address.length < 12 || (address.split(/\n|,/).map(p => p.trim()).filter(Boolean).length < 2)) {
+      alert("Please include house/flat + street and town/city with postcode.");
+      return;
+    }
 
-    // Honeypot (must exist as a hidden text input with id="hp")
-    const website = document.getElementById("hp")?.value || "";
-
-    let succeeded = false; // <— track success to avoid re-enabling after redirect
+    let succeeded = false;
 
     try {
       if (submitBtn) {
@@ -38,48 +63,49 @@ document.addEventListener("DOMContentLoaded", () => {
             name,
             email,
             address,
-            orderNumber,
+            orderNumber: String(orderNumber),
             product,
-            cfToken,  // Turnstile token
-            website   // honeypot
+            website,   // honeypot
+            cfToken    // Turnstile
           })
         }
       );
 
       const text = (await response.text()).trim();
 
-      // Success → local thank-you page (payment link is only in the email)
       if (response.ok && text === "OK") {
         succeeded = true;
         window.location.href = "../thanks/";
         return;
       }
 
-      // Handle known server rejections (plain-text codes)
+      // Handle known server responses (plain-text codes)
       if (text === "ERR_CAPTCHA") {
         alert("Please complete the verification and try again.");
       } else if (text === "ERR_SPAM") {
         alert("That didn’t look right. Please reload and try again.");
       } else if (text === "ERR_RATE") {
         alert("You just submitted an order. Please wait 60 seconds and try again.");
+      } else if (text === "ERR_INVALID_EMAIL") {
+        alert("Please enter a real email address.");
+      } else if (text === "ERR_POSTCODE") {
+        alert("UK delivery needs a full UK postcode in the address.");
+      } else if (text === "ERR_ADDRESS") {
+        alert("Please include house/flat + street and town/city with postcode.");
       } else if (text.startsWith("ERR_NON_UK")) {
-        // Extract the human message after the colon, if present
         const humanMsg = text.split(":").slice(1).join(":").trim()
           || "Sorry — I only ship within the UK. Please provide a UK delivery address with a valid postcode.";
         alert(humanMsg);
       } else {
-        // Generic failure
         alert("Sorry, something went wrong. Please try again.");
       }
 
-      // Reset Turnstile on any failure
       try { window.turnstile?.reset?.(); } catch {}
     } catch (err) {
       console.error("Form submission failed:", err);
       alert("Sorry, something went wrong. Please try again.");
       try { window.turnstile?.reset?.(); } catch {}
     } finally {
-      // Re-enable button after any failure
       if (!succeeded && submitBtn) {
         submitBtn.disabled = false;
         submitBtn.textContent = "BUY";
