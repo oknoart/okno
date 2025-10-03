@@ -13,7 +13,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding-blo
 .logo svg,.circle-link svg{height:100%;width:auto}
 .circle-link.circle-small{height:40px}
 
-.hero-text{font-size:clamp(5rem,13vw,10rem);font-weight:700;line-height:1.15;margin:5px 0 10px}
+.hero-text{font-size:clamp(4.7rem,13vw,10rem);font-weight:700;line-height:1.15;margin:5px 0 10px}
 .hero-text:last-of-type{margin-bottom:60px}
 
 .secondary-text{font-size:clamp(2rem,4vw,6rem);font-weight:700;line-height:1.25;margin:20px 0 40px}
