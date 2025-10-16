@@ -248,3 +248,12 @@ textarea.form-input {
 	align-items: center;
 	justify-content: space-between
 }
+
+.site-footer .circle-link {
+	height: 50px;
+}
+
+.site-footer .circle-link svg {
+	height: 100%;
+	width: auto;
+}
