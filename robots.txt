@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ok-no.net/sitemap.xml
