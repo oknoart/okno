@@ -6,8 +6,8 @@
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
 	box-sizing: border-box
 }
 
@@ -37,11 +37,6 @@ a:visited {
 	font-weight: 700
 }
 
-a:hover,
-a:active {
-	text-decoration: underline
-}
-
 .circle-link {
 	text-decoration: none;
 	font-weight: inherit
@@ -63,10 +58,6 @@ header {
 .circle-link svg {
 	height: 100%;
 	width: auto
-}
-
-.circle-link.circle-small {
-	height: 50px
 }
 
 .hero-text {
@@ -127,11 +118,6 @@ header {
 
 .image-caption .circle-link {
 	height: clamp(28px, 5vw, 50px)
-}
-
-.image-caption .circle-link svg {
-	height: 100%;
-	width: auto
 }
 
 .image-block .secondary-text+.circle-link {
@@ -226,6 +212,13 @@ textarea.form-input {
 
 .form-input:focus {
 	outline: 5px solid var(--fg)
+}
+
+a:focus-visible,
+.circle-link:focus-visible,
+.form-submit:focus-visible {
+	outline: 5px solid var(--fg);
+	outline-offset: 2px
 }
 
 .container {
