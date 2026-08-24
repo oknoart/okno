@@ -214,6 +214,17 @@ textarea.form-input {
 	outline: 5px solid var(--fg)
 }
 
+.purchase-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px
+}
+
+.swap-link {
+	display: inline-block;
+	text-decoration: none
+}
+
 a:focus-visible,
 .circle-link:focus-visible,
 .form-submit:focus-visible {
