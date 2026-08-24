@@ -51,10 +51,17 @@
             <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;padding:0;border:0">
             <input type="hidden" id="cfToken" name="cfToken">
             <div class="cf-turnstile" data-sitekey="0x4AAAAAABuBFSLTdJ_mepsn" data-callback="oknoSetCFToken"></div>
-            <!-- IN STOCK (uncomment this, comment the OOS one) -->
-            <button id="buy-btn" type="submit" class="form-submit">BUY</button>
-            <!-- OUT OF STOCK (comment this when in stock) -->
-            <!-- <button id="buy-btn" type="button" class="form-submit" disabled aria-disabled="true">OUT OF STOCK</button> -->
+            <div class="purchase-actions">
+  <!-- IN STOCK (uncomment this, comment the OOS one) -->
+  <button id="buy-btn" type="submit" class="form-submit">BUY</button>
+  <!-- OUT OF STOCK (comment this when in stock) -->
+  <!-- <button id="buy-btn" type="button" class="form-submit" disabled aria-disabled="true">OUT OF STOCK</button> -->
+
+  <a
+    href="mailto:okno.orders@gmail.com?subject=Art%20swap%20request&body=Hi%0A%0AI%20would%20love%20to%20swap%20something%20for%20your%20art.%0A%0AThe%20OKNO%20art%20I%20want%3A%0AThe%20thing%20I%20want%20to%20swap%3A%0A%0ALove%20you%20bye%20x"
+    class="form-submit swap-link"
+  >SWAP</a>
+</div>
           </form>
           <script>
             (function(){
